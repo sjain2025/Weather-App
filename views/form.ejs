@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+  <style>
+    h1 {
+      font-family: sans-serif;
+      font-size: 42px;
+      text-align: center;
+      margin-top: 42px;
+      margin-bottom: 48px;
+    }
+    input {
+      margin-left: 30%;
+      width: 35%;
+      font-size: 18px;
+      font-family: sans-serif;
+      padding: 18px;
+    }
+    button {
+      text-decoration: none;
+      font-size: 24px;
+      border: 1px solid black;
+      color: black;
+      font-family: sans-serif;
+      padding: 10px 75px;
+      border-radius: 10px;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <h1>Enter Coordinates</h1>
+  <form onsubmit="makeURL(event)">
+    <input type="text" id="latitude" placeholder="Enter Latitude" autocomplete="off">
+    <br><br>
+    <input type="text" id="longitude" placeholder="Enter Longitude" autocomplete="off">
+    <br><br>
+    <div style="text-align: center">
+      <br>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  <script>
+    function makeURL(ev) {
+      ev.preventDefault();
+      latitude = document.getElementById("latitude").value
+      longitude = document.getElementById("longitude").value
+      if (!latitude)
+        latitude = "-1"
+      if (!longitude)
+        longitude = "-1"
+      window.location.href = "/getweather/" + latitude + "/" + longitude;
+    }
+  </script>
+</body>
+</html>
